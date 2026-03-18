@@ -16,8 +16,12 @@ export default function Header({
       <div className="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Brand */}
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center shadow-md shadow-brand-500/20">
-            <span className="text-white text-lg">🛵</span>
+          <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center">
+            <img 
+              src="/assets/logo.png" 
+              alt="Logo" 
+              className="w-full h-full object-contain"
+            />
           </div>
           <div>
             <h1 className="text-base font-bold text-surface-900 leading-tight tracking-tight">

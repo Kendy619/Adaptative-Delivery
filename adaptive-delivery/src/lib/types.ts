@@ -154,10 +154,10 @@ export interface AdaptiveResponse {
 }
 
 // ============================================================
-// DynamoDB — Estado da Sessão
+// PostgreSQL — Estado da Sessão
 // ============================================================
 
-/** Item persistido no DynamoDB */
+/** Item persistido no PostgreSQL */
 export interface SessionStateRecord {
   sessionId: string; // PK
   eventTimestamp: string; // SK (ISO-8601)

@@ -1,4 +1,4 @@
-import { saveSessionState, findLatestSession } from "./dynamo";
+import { saveSessionState, findLatestSession } from "./session-repository";
 import { generateCrossSell } from "./cross-sell";
 import {
   CATEGORIES,
@@ -19,7 +19,7 @@ import {
  */
 const DECAY_FACTOR = 0.85;
 
-/** TTL da sessão no DynamoDB: 30 minutos */
+/** TTL da sessão no PostgreSQL: 30 minutos */
 const SESSION_TTL_SECONDS = 1800;
 
 /** Score mínimo para "destacar" uma categoria na UI */

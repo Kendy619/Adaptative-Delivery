@@ -52,11 +52,7 @@ ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
 # Runtime env vars (pass via docker run -e or --env-file):
-# - AWS_REGION
-# - AWS_ACCESS_KEY_ID
-# - AWS_SECRET_ACCESS_KEY
-# - DYNAMODB_TABLE_NAME
-# - DYNAMODB_ENDPOINT (optional)
+# - DATABASE_URL (e.g. postgresql://user:pass@host:5432/dbname)
 # - SESSION_TTL_SECONDS
 
 CMD ["npm", "start"]

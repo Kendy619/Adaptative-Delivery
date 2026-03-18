@@ -20,7 +20,7 @@ import { DEFAULT_CATEGORY_ORDER, CATEGORIES } from "@/lib/types";
  * - Fornecer funções para os componentes emitirem eventos
  */
 export function useAdaptiveSession() {
-  const [sessionId] = useState(() => generateSessionId());
+  const [sessionId, setSessionId] = useState("");
   const [categories, setCategories] = useState<CategoryRecommendation[]>(
     buildDefaultCategories()
   );
@@ -28,6 +28,11 @@ export function useAdaptiveSession() {
   const [eventCount, setEventCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [lastAdaptation, setLastAdaptation] = useState<number | null>(null);
+
+  // Gerar sessionId somente no client para evitar hydration mismatch
+  useEffect(() => {
+    setSessionId(generateSessionId());
+  }, []);
 
   // Debounce rápido para VIEW events (evitar flood)
   const viewTimerRef = useRef<NodeJS.Timeout | null>(null);
