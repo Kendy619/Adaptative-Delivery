@@ -14,12 +14,10 @@ RUN \
 # ---- Stage 2: Build ----
 FROM node:20-alpine AS builder
 WORKDIR /app
-
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # NEXT_PUBLIC_* vars MUST be available at build time
-# because Next.js inlines them into the client JS bundle.
 ARG NEXT_PUBLIC_APP_NAME=AdaptiveDelivery
 ENV NEXT_PUBLIC_APP_NAME=$NEXT_PUBLIC_APP_NAME
 
@@ -36,13 +34,10 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy only what's needed for production
-# public/ is optional — only copy if it exists
-RUN mkdir -p ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/next.config.js ./next.config.js
+# Copy standalone build (requires output: 'standalone' in next.config.js)
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
 
@@ -51,8 +46,8 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-# Runtime env vars (pass via docker run -e or --env-file):
+# Runtime env vars:
 # - DATABASE_URL (e.g. postgresql://user:pass@host:5432/dbname)
 # - SESSION_TTL_SECONDS
 
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
