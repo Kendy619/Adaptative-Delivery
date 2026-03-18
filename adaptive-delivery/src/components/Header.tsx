@@ -4,12 +4,16 @@ interface HeaderProps {
   sessionId: string;
   eventCount: number;
   isLoading: boolean;
+  cartItemCount: number;
+  onCartClick: () => void;
 }
 
 export default function Header({
   sessionId,
   eventCount,
   isLoading,
+  cartItemCount,
+  onCartClick,
 }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-surface-200/60">
@@ -33,7 +37,7 @@ export default function Header({
           </div>
         </div>
 
-        {/* Session status */}
+        {/* Session status + Cart */}
         <div className="flex items-center gap-3">
           {isLoading && (
             <div className="w-2 h-2 rounded-full bg-brand-400 animate-pulse" />
@@ -46,6 +50,25 @@ export default function Header({
               {eventCount} evento{eventCount !== 1 ? "s" : ""}
             </p>
           </div>
+
+          {/* Cart button */}
+          <button
+            onClick={onCartClick}
+            className="relative w-10 h-10 rounded-xl bg-surface-100 flex items-center justify-center
+                       hover:bg-surface-200 transition-all active:scale-95"
+            title="Ver carrinho"
+          >
+            <span className="text-lg">🛒</span>
+            {cartItemCount > 0 && (
+              <span
+                className="absolute -top-1 -right-1 w-5 h-5 bg-brand-500 text-white 
+                           text-[10px] font-bold rounded-full flex items-center justify-center
+                           shadow-md shadow-brand-500/30 animate-bounce-in"
+              >
+                {cartItemCount > 9 ? "9+" : cartItemCount}
+              </span>
+            )}
+          </button>
         </div>
       </div>
     </header>
