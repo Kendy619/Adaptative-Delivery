@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { processClickEvent } from "@/lib/adaptation-engine";
+import { processClickEvent } from "@/lib/event-monitor";
 import type { ClickEventRequest } from "@/lib/types";
 
 /**
