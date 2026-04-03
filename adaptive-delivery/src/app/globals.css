@@ -38,3 +38,22 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Cart badge bounce animation */
+@keyframes bounce-in {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+.animate-bounce-in {
+  animation: bounce-in 0.3s ease-out;
+}
+
+/* Debug panel slide up */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up {
+  animation: slide-up 0.2s ease-out;
+}

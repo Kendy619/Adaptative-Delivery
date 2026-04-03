@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { useAdaptiveSession } from "@/hooks/useAdaptiveSession";
+import { useCart } from "@/hooks/useCart";
 import { PRODUCTS } from "@/data/products";
 import type { CategoryKey } from "@/lib/types";
 
@@ -9,6 +10,7 @@ import Header from "@/components/Header";
 import CategoryPills from "@/components/CategoryPills";
 import CrossSellBanner from "@/components/CrossSellBanner";
 import ProductCard from "@/components/ProductCard";
+import CartDrawer from "@/components/CartDrawer";
 import AdaptiveDebugPanel from "@/components/AdaptiveDebugPanel";
 
 export default function HomePage() {
@@ -21,6 +23,20 @@ export default function HomePage() {
     lastAdaptation,
     sendEvent,
   } = useAdaptiveSession();
+
+  const {
+    items: cartItems,
+    totalItems: cartTotalItems,
+    totalPrice: cartTotalPrice,
+    isOpen: isCartOpen,
+    addItem,
+    removeItem,
+    updateQuantity,
+    clearCart,
+    toggleCart,
+    closeCart,
+    getItemQuantity,
+  } = useCart();
 
   const [activeCategory, setActiveCategory] = useState<CategoryKey | null>(
     null
@@ -65,6 +81,10 @@ export default function HomePage() {
     );
   };
 
+  const handleAddToCart = (productId: string) => {
+    addItem(productId, sessionId);
+  };
+
   // Agrupa os produtos por categoria para exibição com seções
   const groupedProducts = useMemo(() => {
     if (activeCategory) {
@@ -90,6 +110,8 @@ export default function HomePage() {
         sessionId={sessionId}
         eventCount={eventCount}
         isLoading={isLoading}
+        cartItemCount={cartTotalItems}
+        onCartClick={toggleCart}
       />
 
       <CategoryPills
@@ -133,7 +155,9 @@ export default function HomePage() {
                   <ProductCard
                     key={product.id}
                     product={product}
+                    cartQuantity={getItemQuantity(product.id)}
                     onEvent={sendEvent}
+                    onAddToCart={handleAddToCart}
                   />
                 ))}
               </div>
@@ -148,6 +172,21 @@ export default function HomePage() {
           </div>
         )}
       </main>
+
+      {/* Cart Drawer */}
+      <CartDrawer
+        isOpen={isCartOpen}
+        items={cartItems}
+        totalItems={cartTotalItems}
+        totalPrice={cartTotalPrice}
+        categories={categories}
+        onClose={closeCart}
+        onUpdateQuantity={(productId, qty) =>
+          updateQuantity(productId, qty, sessionId)
+        }
+        onRemoveItem={(productId) => removeItem(productId, sessionId)}
+        onClearCart={() => clearCart(sessionId)}
+      />
 
       {/* Debug panel (para avaliação acadêmica) */}
       <AdaptiveDebugPanel

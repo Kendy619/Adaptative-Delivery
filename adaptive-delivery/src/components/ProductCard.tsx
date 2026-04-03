@@ -5,16 +5,23 @@ import type { Product, EventType, CategoryKey } from "@/lib/types";
 
 interface ProductCardProps {
   product: Product;
+  cartQuantity: number;
   onEvent: (
     eventType: EventType,
     itemId: string,
     itemName: string,
     category: CategoryKey
   ) => void;
+  onAddToCart: (productId: string) => void;
 }
 
-export default function ProductCard({ product, onEvent }: ProductCardProps) {
-  const [isAdded, setIsAdded] = useState(false);
+export default function ProductCard({
+  product,
+  cartQuantity,
+  onEvent,
+  onAddToCart,
+}: ProductCardProps) {
+  const [justAdded, setJustAdded] = useState(false);
 
   const handleClick = () => {
     onEvent("click", product.id, product.name, product.category);
@@ -23,8 +30,9 @@ export default function ProductCard({ product, onEvent }: ProductCardProps) {
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     onEvent("add_to_cart", product.id, product.name, product.category);
-    setIsAdded(true);
-    setTimeout(() => setIsAdded(false), 1500);
+    onAddToCart(product.id);
+    setJustAdded(true);
+    setTimeout(() => setJustAdded(false), 1200);
   };
 
   return (
@@ -55,6 +63,15 @@ export default function ProductCard({ product, onEvent }: ProductCardProps) {
             )}
           </div>
         )}
+
+        {/* Cart quantity badge */}
+        {cartQuantity > 0 && (
+          <div className="absolute top-2 right-2">
+            <span className="px-2 py-0.5 text-[10px] font-bold bg-brand-500 text-white rounded-full shadow-sm">
+              {cartQuantity}× no carrinho
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Info */}
@@ -77,13 +94,15 @@ export default function ProductCard({ product, onEvent }: ProductCardProps) {
             className={`
               px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-300
               ${
-                isAdded
+                justAdded
                   ? "bg-emerald-500 text-white scale-95"
+                  : cartQuantity > 0
+                  ? "bg-brand-500 text-white hover:bg-brand-600 active:scale-95"
                   : "bg-surface-900 text-white hover:bg-brand-500 active:scale-95"
               }
             `}
           >
-            {isAdded ? "✓ Adicionado" : "+ Adicionar"}
+            {justAdded ? "✓ Adicionado" : cartQuantity > 0 ? `+ Mais 1` : "+ Adicionar"}
           </button>
         </div>
       </div>
