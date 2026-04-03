@@ -5,7 +5,7 @@ import {
   type CategoryMeta,
 } from "./types";
 
-const MAX_SUGGESTIONS = 3;
+const MAX_SUGGESTIONS = 4;
 
 /**
  * Gera sugestões de venda cruzada (RN04).
