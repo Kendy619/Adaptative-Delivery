@@ -1,0 +1,193 @@
+<mxfile host="app.diagrams.net" agent="Claude">
+  <diagram name="MAPE-K — Adaptive Delivery" id="mape-k-adaptive-delivery">
+    <mxGraphModel dx="1768" dy="981" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F2937;" value="Adaptive Delivery System — Arquitetura MAPE-K" vertex="1">
+          <mxGeometry height="50" width="1574" x="40" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="user" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;outlineConnect=0;fontSize=12;fontStyle=1;" value="Usuário&#xa;(navega na vitrine)" vertex="1">
+          <mxGeometry height="80" width="50" x="80" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="managed-element" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#F59E0B;strokeWidth=2;fontSize=13;fontStyle=1;verticalAlign=top;align=center;" value="Managed Element (Sistema Gerenciado) — Vitrine Adaptativa (Next.js / React)" vertex="1">
+          <mxGeometry height="160" width="1380" x="200" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="me-page" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FED7AA;strokeColor=#EA580C;fontSize=11;" value="src/app/page.tsx&#xa;HomePage" vertex="1">
+          <mxGeometry height="50" width="160" x="230" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="me-cat" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FED7AA;strokeColor=#EA580C;fontSize=11;" value="CategoryPills.tsx&#xa;(reordena categorias)" vertex="1">
+          <mxGeometry height="50" width="160" x="410" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="me-prod" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FED7AA;strokeColor=#EA580C;fontSize=11;" value="ProductCard.tsx&#xa;(emite onEvent)" vertex="1">
+          <mxGeometry height="50" width="160" x="590" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="me-cross" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FED7AA;strokeColor=#EA580C;fontSize=11;" value="CrossSellBanner.tsx&#xa;(exibe sugestões)" vertex="1">
+          <mxGeometry height="50" width="160" x="770" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="me-cart" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FED7AA;strokeColor=#EA580C;fontSize=11;" value="CartDrawer.tsx&#xa;Header.tsx" vertex="1">
+          <mxGeometry height="50" width="160" x="950" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="me-debug" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FED7AA;strokeColor=#EA580C;fontSize=11;" value="AdaptiveDebugPanel.tsx&#xa;(observabilidade)" vertex="1">
+          <mxGeometry height="50" width="160" x="1130" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="me-hook" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDBA74;strokeColor=#C2410C;fontSize=11;fontStyle=1;" value="hooks/useAdaptiveSession.ts&#xa;(orquestra clickstream + estado React)&#xa;hooks/useCart.ts" vertex="1">
+          <mxGeometry height="50" width="250" x="1310" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="me-sensors" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontSize=11;fontStyle=2;" value="🟢 Sensors (Sensores) — eventos: view · click · search · favorite · add_to_cart" vertex="1">
+          <mxGeometry height="40" width="640" x="230" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="me-effectors" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;fontSize=11;fontStyle=2;" value="🔴 Effectors (Atuadores) — re-renderização: nova ordem de categorias + venda cruzada + destaques" vertex="1">
+          <mxGeometry height="40" width="660" x="900" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="autonomic" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#1F2937;strokeWidth=2;dashed=1;fontSize=13;fontStyle=1;verticalAlign=top;align=center;" value="Autonomic Manager (Sistema Gerenciador) — API Routes + lib/* (Back-end Next.js)" vertex="1">
+          <mxGeometry height="640" width="1380" x="200" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#1D4ED8;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;align=center;" value="① Monitor (Monitorar)" vertex="1">
+          <mxGeometry height="240" width="300" x="230" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="mon-desc" parent="1" style="text;html=1;align=center;fontSize=10;fontStyle=2;fontColor=#1E3A8A;" value="Coleta o fluxo de cliques e calcula pontuações com decaimento temporal (RN01 / RN02)." vertex="1">
+          <mxGeometry height="30" width="280" x="240" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="mon-api" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#1D4ED8;fontSize=10;" value="POST /api/session/event&#xa;src/app/api/session/event/route.ts" vertex="1">
+          <mxGeometry height="40" width="260" x="250" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="mon-engine" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#1D4ED8;fontSize=10;" value="lib/event-monitor.ts&#xa;processClickEvent()" vertex="1">
+          <mxGeometry height="40" width="260" x="250" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="mon-rules" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#3B82F6;fontSize=10;align=left;spacingLeft=8;" value="• EVENT_WEIGHTS (view=1 … add_to_cart=5)&#xa;• DECAY_FACTOR = 0.85&#xa;• TTL = 30 min" vertex="1">
+          <mxGeometry height="60" width="260" x="250" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="analyze" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#6D28D9;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;align=center;" value="② Analyze (Analisar)" vertex="1">
+          <mxGeometry height="240" width="300" x="560" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="ana-desc" parent="1" style="text;html=1;align=center;fontSize=10;fontStyle=2;fontColor=#4C1D95;" value="Interpreta as pontuações e identifica categorias de interesse imediato (RN02)." vertex="1">
+          <mxGeometry height="30" width="280" x="570" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="ana-engine" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DDD6FE;strokeColor=#6D28D9;fontSize=10;" value="lib/adaptation-engine.ts&#xa;rankCategories(scores)" vertex="1">
+          <mxGeometry height="40" width="260" x="580" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="ana-get" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DDD6FE;strokeColor=#6D28D9;fontSize=10;" value="GET /api/session/recommendations&#xa;getRecommendations(sessionId)" vertex="1">
+          <mxGeometry height="40" width="260" x="580" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="ana-rules" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#8B5CF6;fontSize=10;align=left;spacingLeft=8;" value="• Filtra resíduos (pontuação &gt; 0.01)&#xa;• Ordena por pontuação decrescente&#xa;• HIGHLIGHT_THRESHOLD = 2.0 (limiar de destaque)" vertex="1">
+          <mxGeometry height="60" width="260" x="580" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="plan" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#BE185D;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;align=center;" value="③ Plan (Planejar)" vertex="1">
+          <mxGeometry height="240" width="300" x="890" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="plan-desc" parent="1" style="text;html=1;align=center;fontSize=10;fontStyle=2;fontColor=#831843;" value="Gera o plano de adaptação: nova vitrine + sugestões de venda cruzada (RN03 / RN04)." vertex="1">
+          <mxGeometry height="30" width="280" x="900" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="plan-cross" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FBCFE8;strokeColor=#BE185D;fontSize=10;" value="lib/cross-sell.ts&#xa;generateCrossSell(category, item)" vertex="1">
+          <mxGeometry height="40" width="260" x="910" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="plan-resp" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FBCFE8;strokeColor=#BE185D;fontSize=10;" value="Monta a resposta AdaptiveResponse&#xa;{ adaptedCategories, crossSell, … }" vertex="1">
+          <mxGeometry height="40" width="260" x="910" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="plan-rules" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDF2F8;strokeColor=#EC4899;fontSize=10;align=left;spacingLeft=8;" value="• Mapa de afinidades CATEGORIES[*].crossSell&#xa;• MAX_SUGGESTIONS = 4 (máx. de sugestões)&#xa;• Justificativas contextualizadas por item" vertex="1">
+          <mxGeometry height="60" width="260" x="910" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="execute" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#047857;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;align=center;" value="④ Execute (Executar)" vertex="1">
+          <mxGeometry height="240" width="330" x="1220" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="exec-desc" parent="1" style="text;html=1;align=center;fontSize=10;fontStyle=2;fontColor=#064E3B;" value="Aplica o plano: resposta JSON → React reconcilia a interface (RA01 — adaptação instantânea)." vertex="1">
+          <mxGeometry height="30" width="310" x="1230" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="exec-resp" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A7F3D0;strokeColor=#047857;fontSize=10;" value="HTTP 200 — AdaptiveResponse&#xa;(JSON síncrono)" vertex="1">
+          <mxGeometry height="40" width="290" x="1240" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="exec-hook" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A7F3D0;strokeColor=#047857;fontSize=10;" value="useAdaptiveSession.fireEvent()&#xa;setCategories / setCrossSell / setEventCount" vertex="1">
+          <mxGeometry height="40" width="290" x="1240" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="exec-ui" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#10B981;fontSize=10;align=left;spacingLeft=8;" value="Re-renderização: CategoryPills reordena · CrossSellBanner aparece · destaques nos cards" vertex="1">
+          <mxGeometry height="60" width="290" x="1240" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="knowledge" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;align=center;" value="⑤ Knowledge (Conhecimento) — Base de conhecimento compartilhada" vertex="1">
+          <mxGeometry height="290" width="1320" x="230" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="k-db" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#FDE68A;strokeColor=#B45309;fontSize=10;align=center;verticalAlign=middle;" value="🗄 PostgreSQL — tabela session_state&#xa;&#xa;Chave primária: session_id · Chave de ordenação: event_timestamp&#xa;category_scores (JSONB) · last_item_viewed&#xa;last_category · event_type · event_count · ttl&#xa;&#xa;Índice: (session_id, event_timestamp DESC)" vertex="1">
+          <mxGeometry height="200" width="260" x="260" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="k-repo" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=11;" value="lib/session-repository.ts&#xa;&#xa;saveSessionState(state)&#xa;findLatestSession(sessionId)" vertex="1">
+          <mxGeometry height="90" width="240" x="550" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="k-pool" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=11;" value="lib/db.ts&#xa;&#xa;Pool de conexões pg (singleton)&#xa;initDb() — DDL CREATE TABLE IF NOT EXISTS" vertex="1">
+          <mxGeometry height="100" width="240" x="550" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="k-types" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=11;" value="lib/types.ts&#xa;&#xa;EventType · EVENT_WEIGHTS (pesos por evento)&#xa;CategoryKey · CATEGORIES (mapa de venda cruzada)&#xa;DEFAULT_CATEGORY_ORDER (ordem padrão)&#xa;DTOs: ClickEventRequest · AdaptiveResponse&#xa;SessionStateRecord" vertex="1">
+          <mxGeometry height="200" width="340" x="820" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="k-products" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=11;" value="data/products.ts&#xa;&#xa;Catálogo de produtos (PRODUCTS[])&#xa;{id, name, category, price, image, tags}" vertex="1">
+          <mxGeometry height="95" width="330" x="1190" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="k-env" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=11;" value="Configuração / Implantação&#xa;&#xa;DATABASE_URL (.env.local)&#xa;Dockerfile · docker-compose.yml&#xa;next.config.js · tailwind.config.js · tsconfig.json" vertex="1">
+          <mxGeometry height="95" width="330" x="1190" y="825" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F9FAFB;strokeColor=#9CA3AF;fontSize=11;fontStyle=1;verticalAlign=top;align=center;" value="Legenda" vertex="1">
+          <mxGeometry height="150" width="1574" x="40" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FED7AA;strokeColor=#EA580C;fontSize=10;" value="🟠 Managed Element (Sist. Gerenciado)" vertex="1">
+          <mxGeometry height="30" width="180" x="60" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#1D4ED8;fontSize=10;" value="🔵 Monitor (Monitorar)" vertex="1">
+          <mxGeometry height="30" width="120" x="250" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DDD6FE;strokeColor=#6D28D9;fontSize=10;" value="🟣 Analyze (Analisar)" vertex="1">
+          <mxGeometry height="30" width="120" x="380" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBCFE8;strokeColor=#BE185D;fontSize=10;" value="🌸 Plan (Planejar)" vertex="1">
+          <mxGeometry height="30" width="120" x="510" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#A7F3D0;strokeColor=#047857;fontSize=10;" value="🟢 Execute (Executar)" vertex="1">
+          <mxGeometry height="30" width="120" x="640" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#B45309;fontSize=10;" value="🟡 Knowledge (Conhecimento)" vertex="1">
+          <mxGeometry height="30" width="120" x="770" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="leg-text" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#374151;spacingLeft=10;" value="Fluxo de execução (laço autonômico):&#xa;Usuário → Sensors → ① Monitor (coleta + pontuação) → ② Analyze (ranqueamento) → ③ Plan (vitrine + venda cruzada) → ④ Execute (re-renderização) → Effectors → Usuário.&#xa;Todas as fases LEEM e ESCREVEM em ⑤ Knowledge (PostgreSQL session_state, regras em types.ts, catálogo, repositório e pool de conexão)." vertex="1">
+          <mxGeometry height="65" width="1540" x="60" y="1075" as="geometry" />
+        </mxCell>
+        <mxCell id="e-user-me" edge="1" parent="1" source="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#374151;strokeWidth=2;endArrow=classic;startArrow=classic;" target="managed-element">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-sensors-mon" edge="1" parent="1" source="me-sensors" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.2;exitY=1;entryX=0.5;entryY=0;strokeColor=#1D4ED8;strokeWidth=2;endArrow=classic;fontSize=10;fontColor=#1D4ED8;" target="monitor" value="evento do fluxo de cliques&#xa;(POST /api/session/event)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-mon-ana" edge="1" parent="1" source="monitor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#6D28D9;strokeWidth=2;endArrow=classic;fontSize=10;fontColor=#6D28D9;" target="analyze" value="pontuações atualizadas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ana-plan" edge="1" parent="1" source="analyze" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#BE185D;strokeWidth=2;endArrow=classic;fontSize=10;fontColor=#BE185D;" target="plan" value="ranking de categorias">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-plan-exec" edge="1" parent="1" source="plan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#047857;strokeWidth=2;endArrow=classic;fontSize=10;fontColor=#047857;" target="execute" value="resposta adaptada (AdaptiveResponse)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-exec-eff" edge="1" parent="1" source="execute" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;entryX=0.8;entryY=1;strokeColor=#DC2626;strokeWidth=2;endArrow=classic;fontSize=10;fontColor=#DC2626;" target="me-effectors" value="aplica adaptação">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-eff-user" edge="1" parent="1" source="me-effectors" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0;entryX=0.5;entryY=0;strokeColor=#DC2626;strokeWidth=2;endArrow=classic;dashed=1;fontSize=10;fontColor=#DC2626;" target="user" value="vitrine reordenada (feedback ao usuário)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-mon-k" edge="1" parent="1" source="monitor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.2;entryY=0;strokeColor=#B45309;strokeWidth=1;endArrow=classic;startArrow=classic;dashed=1;fontSize=9;fontColor=#B45309;" target="knowledge" value="persiste estado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ana-k" edge="1" parent="1" source="analyze" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.45;entryY=0;strokeColor=#B45309;strokeWidth=1;endArrow=classic;startArrow=classic;dashed=1;fontSize=9;fontColor=#B45309;" target="knowledge" value="lê estado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-plan-k" edge="1" parent="1" source="plan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.65;entryY=0;strokeColor=#B45309;strokeWidth=1;endArrow=classic;startArrow=classic;dashed=1;fontSize=9;fontColor=#B45309;" target="knowledge" value="lê regras">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-exec-k" edge="1" parent="1" source="execute" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.85;entryY=0;strokeColor=#B45309;strokeWidth=1;endArrow=classic;startArrow=classic;dashed=1;fontSize=9;fontColor=#B45309;" target="knowledge" value="lê tipos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-repo-db" edge="1" parent="1" source="k-repo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;strokeColor=#B45309;strokeWidth=2;endArrow=classic;startArrow=classic;fontSize=10;fontColor=#B45309;" target="k-db" value="SQL">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-pool-db" edge="1" parent="1" source="k-pool" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.7;strokeColor=#B45309;strokeWidth=1;endArrow=classic;dashed=1;" target="k-db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
