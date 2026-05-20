@@ -190,4 +190,477 @@
       </root>
     </mxGraphModel>
   </diagram>
+  <diagram name="① Monitor — Detalhamento" id="monitor-detail">
+    <mxGraphModel dx="1768" dy="981" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="m-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F2937;" value="Adaptive Delivery — Detalhamento do ① Monitor" vertex="1">
+          <mxGeometry x="40" y="30" width="1574" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m-mini-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#374151;strokeWidth=1;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;" value="Sistema Gerenciador (MAPE-K)" vertex="1">
+          <mxGeometry x="80" y="100" width="480" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="m-mini-ana" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Analisador" vertex="1">
+          <mxGeometry x="110" y="150" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m-mini-mon" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#B45309;fontSize=11;fontStyle=1;strokeWidth=2;" value="Monitor" vertex="1">
+          <mxGeometry x="110" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m-mini-kb" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=10;boundedLbl=1;backgroundOutline=1;size=10;" value="Base de&#xa;Conhecimento" vertex="1">
+          <mxGeometry x="270" y="180" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m-mini-plan" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Planejador" vertex="1">
+          <mxGeometry x="410" y="150" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m-mini-exec" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Executor" vertex="1">
+          <mxGeometry x="410" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m-mini-arrow" parent="1" style="endArrow=classic;html=1;strokeColor=#DC2626;strokeWidth=2;" edge="1" source="m-mini-mon" target="m-mini-ana">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-b1" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Coleta eventos detectados pelos sensores/sondas" vertex="1">
+          <mxGeometry x="620" y="130" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m-b2" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Normaliza, filtra e agrega o clickstream da vitrine" vertex="1">
+          <mxGeometry x="620" y="170" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m-b3" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Gera sintomas (pontuações por categoria) e os envia ao Analisador" vertex="1">
+          <mxGeometry x="620" y="210" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m-b4" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ &quot;Ponto de entrada&quot; do laço autonômico" vertex="1">
+          <mxGeometry x="620" y="250" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#1D4ED8;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" value="Monitor" vertex="1">
+          <mxGeometry x="80" y="350" width="1240" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="m-coletor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#1D4ED8;fontSize=11;fontStyle=1;" value="Coletor de Evento&#xa;&#xa;useAdaptiveSession.sendEvent()&#xa;POST /api/session/event/route.ts" vertex="1">
+          <mxGeometry x="1060" y="440" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="m-proc-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#1D4ED8;strokeWidth=1;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;" value="Processador de Eventos" vertex="1">
+          <mxGeometry x="640" y="410" width="360" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="m-norm" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#1D4ED8;fontSize=11;" value="Normalização&#xa;&#xa;route.ts — valida campos&#xa;eventType default = &quot;view&quot;" vertex="1">
+          <mxGeometry x="670" y="450" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="m-filt" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#1D4ED8;fontSize=11;" value="Filtro&#xa;&#xa;useAdaptiveSession.ts&#xa;debounce 300ms para &quot;view&quot;" vertex="1">
+          <mxGeometry x="670" y="540" width="300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="m-agr" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#1D4ED8;fontSize=11;" value="Agregação&#xa;&#xa;event-monitor.processClickEvent()&#xa;score × 0.85 + EVENT_WEIGHTS[type]" vertex="1">
+          <mxGeometry x="670" y="630" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m-gerador" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#1D4ED8;fontSize=11;fontStyle=1;" value="Gerador de Sintoma&#xa;&#xa;monta SessionStateRecord:&#xa;categoryScores, lastCategory,&#xa;lastItemViewed, eventCount, ttl" vertex="1">
+          <mxGeometry x="340" y="560" width="260" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="m-altb" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#1D4ED8;fontSize=11;" value="Alterar Base&#xa;&#xa;session-repository.&#xa;saveSessionState()&#xa;→ INSERT em session_state" vertex="1">
+          <mxGeometry x="120" y="650" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="m-emissor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#BFDBFE;strokeColor=#1D4ED8;fontSize=11;fontStyle=1;" value="Emissor de Sintoma&#xa;&#xa;return AdaptiveResponse&#xa;{ adaptedCategories,&#xa;  crossSell, ... }" vertex="1">
+          <mxGeometry x="120" y="430" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="m-ext-ana" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;strokeWidth=2;fontSize=12;fontStyle=1;" value="Analisador" vertex="1">
+          <mxGeometry x="1370" y="440" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="m-ext-sg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Sistema Gerenciado&#xa;(vitrine React)" vertex="1">
+          <mxGeometry x="1370" y="550" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m-ext-amb" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Ambiente&#xa;(usuário navegando)" vertex="1">
+          <mxGeometry x="1370" y="640" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m-ext-kb" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;boundedLbl=1;backgroundOutline=1;size=12;" value="Base de&#xa;Conhecimento&#xa;(PostgreSQL&#xa;session_state)" vertex="1">
+          <mxGeometry x="1390" y="720" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="m-e1" edge="1" parent="1" source="m-ext-sg" target="m-coletor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.4;endArrow=classic;strokeColor=#1D4ED8;fontSize=10;fontColor=#1D4ED8;" value="eventos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-e2" edge="1" parent="1" source="m-ext-amb" target="m-coletor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.8;endArrow=classic;strokeColor=#1D4ED8;fontSize=10;fontColor=#1D4ED8;" value="eventos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-e3" edge="1" parent="1" source="m-coletor" target="m-norm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.2;entryX=1;entryY=0.5;endArrow=classic;strokeColor=#1D4ED8;fontSize=10;fontColor=#1D4ED8;" value="eventos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-e4" edge="1" parent="1" source="m-coletor" target="m-filt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.8;entryX=1;entryY=0.5;endArrow=classic;strokeColor=#1D4ED8;fontSize=10;fontColor=#1D4ED8;" value="eventos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-e5" edge="1" parent="1" source="m-norm" target="m-agr" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.3;exitY=1;entryX=0.5;entryY=0;endArrow=classic;strokeColor=#1D4ED8;fontSize=10;fontColor=#1D4ED8;" value="dado processado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-e6" edge="1" parent="1" source="m-filt" target="m-agr" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.7;exitY=1;entryX=0.5;entryY=0;endArrow=classic;strokeColor=#1D4ED8;fontSize=10;fontColor=#1D4ED8;" value="dado processado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-e7" edge="1" parent="1" source="m-agr" target="m-gerador" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.4;endArrow=classic;strokeColor=#1D4ED8;fontSize=10;fontColor=#1D4ED8;" value="dado processado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-e8" edge="1" parent="1" source="m-gerador" target="m-emissor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.2;entryX=1;entryY=0.5;endArrow=classic;strokeColor=#1D4ED8;fontSize=10;fontColor=#1D4ED8;" value="sintomas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-e9" edge="1" parent="1" source="m-gerador" target="m-altb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.8;entryX=1;entryY=0.5;endArrow=classic;strokeColor=#1D4ED8;fontSize=10;fontColor=#1D4ED8;" value="descrição">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-e10" edge="1" parent="1" source="m-emissor" target="m-ext-ana" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;endArrow=classic;strokeColor=#1D4ED8;strokeWidth=2;fontSize=10;fontColor=#1D4ED8;" value="sintomas&#xa;(AdaptiveResponse)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-e11" edge="1" parent="1" source="m-altb" target="m-ext-kb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;endArrow=classic;strokeColor=#B45309;strokeWidth=2;fontSize=10;fontColor=#B45309;" value="conhecimento">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-map-frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F9FAFB;strokeColor=#9CA3AF;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" value="Mapeamento subcomponente → código do Adaptive Delivery" vertex="1">
+          <mxGeometry x="80" y="890" width="1490" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="m-map-text" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#374151;spacingLeft=20;spacingTop=10;" value="• Coletor de Evento — hooks/useAdaptiveSession.ts (sendEvent) + app/api/session/event/route.ts (POST handler)&#xa;• Normalização — route.ts: valida sessionId/itemId/category; eventType = &quot;view&quot; como default seguro&#xa;• Filtro — useAdaptiveSession.ts: debounce de 300 ms para eventos &quot;view&quot;, evitando flood de scroll&#xa;• Agregação — lib/event-monitor.ts → processClickEvent(): aplica DECAY_FACTOR (0.85) sobre os scores anteriores e soma EVENT_WEIGHTS[type] na categoria atual&#xa;• Gerador de Sintoma — lib/event-monitor.ts: monta SessionStateRecord (categoryScores, lastCategory, lastItemViewed, eventCount, ttl)&#xa;• Alterar Base — lib/session-repository.ts → saveSessionState(): INSERT em session_state (PostgreSQL)&#xa;• Emissor de Sintoma — lib/event-monitor.ts: return AdaptiveResponse — consumido pelo Analisador (lib/adaptation-engine.ts)&#xa;&#xa;Constantes do loop (Knowledge): DECAY_FACTOR=0.85 · SESSION_TTL_SECONDS=1800 · EVENT_WEIGHTS={view:1, click:2, search:3, favorite:4, add_to_cart:5}" vertex="1">
+          <mxGeometry x="100" y="920" width="1450" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="② Analisador — Detalhamento" id="analyzer-detail">
+    <mxGraphModel dx="1768" dy="981" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="a-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F2937;" value="Adaptive Delivery — Detalhamento do ② Analisador" vertex="1">
+          <mxGeometry x="40" y="30" width="1574" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a-mini-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#374151;strokeWidth=1;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;" value="Sistema Gerenciador (MAPE-K)" vertex="1">
+          <mxGeometry x="80" y="100" width="480" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="a-mini-ana" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#B45309;fontSize=11;fontStyle=1;strokeWidth=2;" value="Analisador" vertex="1">
+          <mxGeometry x="110" y="150" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a-mini-mon" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Monitor" vertex="1">
+          <mxGeometry x="110" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a-mini-kb" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=10;boundedLbl=1;backgroundOutline=1;size=10;" value="Base de&#xa;Conhecimento" vertex="1">
+          <mxGeometry x="270" y="180" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="a-mini-plan" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Planejador" vertex="1">
+          <mxGeometry x="410" y="150" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a-mini-exec" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Executor" vertex="1">
+          <mxGeometry x="410" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="a-mini-arrow" parent="1" style="endArrow=classic;html=1;strokeColor=#DC2626;strokeWidth=2;" edge="1" source="a-mini-ana" target="a-mini-plan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-b1" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Recebe os sintomas (pontuações por categoria) emitidos pelo Monitor" vertex="1">
+          <mxGeometry x="620" y="130" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a-b2" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Filtra resíduos, ordena por interesse e detecta categorias em destaque" vertex="1">
+          <mxGeometry x="620" y="170" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a-b3" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Pode consultar o estado anterior na Base de Conhecimento (modo GET)" vertex="1">
+          <mxGeometry x="620" y="210" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a-b4" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Emite o diagnóstico (ranking de categorias) ao Planejador" vertex="1">
+          <mxGeometry x="620" y="250" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6D28D9;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" value="Analisador" vertex="1">
+          <mxGeometry x="80" y="350" width="1240" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="a-recep" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DDD6FE;strokeColor=#6D28D9;fontSize=11;fontStyle=1;" value="Receptor de Sintoma&#xa;&#xa;getRecommendations(sessionId)&#xa;categoryScores vindos do Monitor" vertex="1">
+          <mxGeometry x="1060" y="440" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="a-proc-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6D28D9;strokeWidth=1;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;" value="Processador de Análise" vertex="1">
+          <mxGeometry x="640" y="410" width="360" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="a-filt" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DDD6FE;strokeColor=#6D28D9;fontSize=11;" value="Filtro de Resíduos&#xa;&#xa;rankCategories: filter(score &gt; 0.01)&#xa;remove cauda do decaimento" vertex="1">
+          <mxGeometry x="670" y="450" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a-rank" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DDD6FE;strokeColor=#6D28D9;fontSize=11;" value="Ordenador (Ranking)&#xa;&#xa;sort((a,b) =&gt; b.score - a.score)&#xa;ranking decrescente por interesse" vertex="1">
+          <mxGeometry x="670" y="540" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a-hi" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DDD6FE;strokeColor=#6D28D9;fontSize=11;" value="Detector de Destaque&#xa;&#xa;highlighted = score ≥ 2.0&#xa;(HIGHLIGHT_THRESHOLD)" vertex="1">
+          <mxGeometry x="670" y="630" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a-compl" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DDD6FE;strokeColor=#6D28D9;fontSize=11;fontStyle=1;" value="Complementador&#xa;&#xa;Adiciona categorias sem score&#xa;na DEFAULT_CATEGORY_ORDER&#xa;(RN05 — vitrine completa)" vertex="1">
+          <mxGeometry x="340" y="600" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="a-cons" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DDD6FE;strokeColor=#6D28D9;fontSize=11;" value="Consultor da Base&#xa;&#xa;findLatestSession(sessionId)&#xa;(usado em GET /recommendations)" vertex="1">
+          <mxGeometry x="120" y="650" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="a-emissor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DDD6FE;strokeColor=#6D28D9;fontSize=11;fontStyle=1;" value="Emissor de Diagnóstico&#xa;&#xa;CategoryRecommendation[]&#xa;{ category, rank, score,&#xa;  highlighted, ... }" vertex="1">
+          <mxGeometry x="120" y="430" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="a-ext-plan" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;strokeWidth=2;fontSize=12;fontStyle=1;" value="Planejador" vertex="1">
+          <mxGeometry x="1370" y="440" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="a-ext-mon" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Monitor&#xa;(emite sintomas)" vertex="1">
+          <mxGeometry x="1370" y="550" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="a-ext-kb" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;boundedLbl=1;backgroundOutline=1;size=12;" value="Base de&#xa;Conhecimento&#xa;(session_state +&#xa;types.ts)" vertex="1">
+          <mxGeometry x="1390" y="660" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e1" edge="1" parent="1" source="a-ext-mon" target="a-recep" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.7;endArrow=classic;strokeColor=#6D28D9;fontSize=10;fontColor=#6D28D9;" value="sintomas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e2" edge="1" parent="1" source="a-recep" target="a-filt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;endArrow=classic;strokeColor=#6D28D9;fontSize=10;fontColor=#6D28D9;" value="scores">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e3" edge="1" parent="1" source="a-filt" target="a-rank" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=classic;strokeColor=#6D28D9;fontSize=10;fontColor=#6D28D9;" value="filtrados">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e4" edge="1" parent="1" source="a-rank" target="a-hi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=classic;strokeColor=#6D28D9;fontSize=10;fontColor=#6D28D9;" value="ranqueados">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e5" edge="1" parent="1" source="a-hi" target="a-compl" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.4;endArrow=classic;strokeColor=#6D28D9;fontSize=10;fontColor=#6D28D9;" value="diagnóstico parcial">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e6" edge="1" parent="1" source="a-compl" target="a-emissor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.7;endArrow=classic;strokeColor=#6D28D9;fontSize=10;fontColor=#6D28D9;" value="vitrine completa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e7" edge="1" parent="1" source="a-cons" target="a-emissor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;endArrow=classic;strokeColor=#6D28D9;dashed=1;fontSize=10;fontColor=#6D28D9;" value="estado anterior">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e8" edge="1" parent="1" source="a-emissor" target="a-ext-plan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;endArrow=classic;strokeColor=#6D28D9;strokeWidth=2;fontSize=10;fontColor=#6D28D9;" value="diagnóstico&#xa;(CategoryRecommendation[])">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e9" edge="1" parent="1" source="a-cons" target="a-ext-kb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;endArrow=classic;startArrow=classic;strokeColor=#B45309;strokeWidth=2;fontSize=10;fontColor=#B45309;dashed=1;" value="consulta sessão">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-map-frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F9FAFB;strokeColor=#9CA3AF;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" value="Mapeamento subcomponente → código do Adaptive Delivery" vertex="1">
+          <mxGeometry x="80" y="890" width="1490" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="a-map-text" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#374151;spacingLeft=20;spacingTop=10;" value="• Receptor de Sintoma — lib/adaptation-engine.ts → getRecommendations() / rankCategories(scores) (entrada da fase)&#xa;• Filtro de Resíduos — rankCategories: Object.entries(scores).filter(([, s]) =&gt; s &gt; 0.01) — descarta cauda de decaimento&#xa;• Ordenador (Ranking) — sort([, a], [, b]) =&gt; b - a — ranking decrescente; atribui rank = 1..N&#xa;• Detector de Destaque — highlighted = score &gt;= HIGHLIGHT_THRESHOLD (2.0) — flag usada pelo CategoryPills para realce visual&#xa;• Complementador — for catKey of DEFAULT_CATEGORY_ORDER: adiciona categorias sem score ao final (RN05 — acesso livre, vitrine completa)&#xa;• Consultor da Base — lib/session-repository.ts → findLatestSession(sessionId): SELECT ... ORDER BY event_timestamp DESC LIMIT 1&#xa;• Emissor de Diagnóstico — return CategoryRecommendation[] — consumido pelo Planejador (lib/cross-sell.ts) e pela API GET /recommendations&#xa;&#xa;Constantes (Knowledge): HIGHLIGHT_THRESHOLD=2.0 · score-floor=0.01 · DEFAULT_CATEGORY_ORDER=[PROMOCOES, LANCHES, PIZZAS, BEBIDAS, SALGADOS, DOCES, SOBREMESAS, CAFES, ACOMPANHAMENTOS, MOLHOS]" vertex="1">
+          <mxGeometry x="100" y="920" width="1450" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="③ Planejador — Detalhamento" id="planner-detail">
+    <mxGraphModel dx="1768" dy="981" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F2937;" value="Adaptive Delivery — Detalhamento do ③ Planejador" vertex="1">
+          <mxGeometry x="40" y="30" width="1574" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p-mini-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#374151;strokeWidth=1;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;" value="Sistema Gerenciador (MAPE-K)" vertex="1">
+          <mxGeometry x="80" y="100" width="480" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="p-mini-ana" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Analisador" vertex="1">
+          <mxGeometry x="110" y="150" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p-mini-mon" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Monitor" vertex="1">
+          <mxGeometry x="110" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p-mini-kb" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=10;boundedLbl=1;backgroundOutline=1;size=10;" value="Base de&#xa;Conhecimento" vertex="1">
+          <mxGeometry x="270" y="180" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p-mini-plan" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#B45309;fontSize=11;fontStyle=1;strokeWidth=2;" value="Planejador" vertex="1">
+          <mxGeometry x="410" y="150" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p-mini-exec" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Executor" vertex="1">
+          <mxGeometry x="410" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p-mini-arrow" parent="1" style="endArrow=classic;html=1;strokeColor=#DC2626;strokeWidth=2;" edge="1" source="p-mini-plan" target="p-mini-exec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-b1" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Recebe o diagnóstico do Analisador (categoria/item de maior interesse)" vertex="1">
+          <mxGeometry x="620" y="130" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p-b2" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Consulta o grafo de afinidades CATEGORIES[*].crossSell" vertex="1">
+          <mxGeometry x="620" y="170" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p-b3" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Seleciona até MAX_SUGGESTIONS=4 sugestões e gera justificativa contextualizada" vertex="1">
+          <mxGeometry x="620" y="210" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p-b4" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Emite o plano (ranking + venda cruzada) ao Executor" vertex="1">
+          <mxGeometry x="620" y="250" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#BE185D;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" value="Planejador" vertex="1">
+          <mxGeometry x="80" y="350" width="1240" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="p-recep" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBCFE8;strokeColor=#BE185D;fontSize=11;fontStyle=1;" value="Receptor de Diagnóstico&#xa;&#xa;categoria do último item +&#xa;ranking vindo do Analisador" vertex="1">
+          <mxGeometry x="1060" y="440" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p-proc-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#BE185D;strokeWidth=1;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;" value="Gerador de Plano (cross-sell)" vertex="1">
+          <mxGeometry x="640" y="410" width="360" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="p-cons" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBCFE8;strokeColor=#BE185D;fontSize=11;" value="Consultor de Afinidades&#xa;&#xa;CATEGORIES[cat].crossSell&#xa;grafo categoria → categorias afins" vertex="1">
+          <mxGeometry x="670" y="450" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p-sel" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBCFE8;strokeColor=#BE185D;fontSize=11;" value="Seletor de Sugestões&#xa;&#xa;.slice(0, MAX_SUGGESTIONS)&#xa;limita a 4 categorias afins" vertex="1">
+          <mxGeometry x="670" y="540" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p-just" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBCFE8;strokeColor=#BE185D;fontSize=11;" value="Gerador de Justificativa&#xa;&#xa;buildReason(target, itemContext)&#xa;&quot;Que tal uma bebida para sua Coxinha?&quot;" vertex="1">
+          <mxGeometry x="670" y="630" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="p-mont" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBCFE8;strokeColor=#BE185D;fontSize=11;fontStyle=1;" value="Montador do Plano&#xa;&#xa;monta AdaptiveResponse:&#xa;{ adaptedCategories,&#xa;  crossSellSuggestions,&#xa;  totalEventsProcessed, ts }" vertex="1">
+          <mxGeometry x="340" y="560" width="260" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="p-cons-kb" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBCFE8;strokeColor=#BE185D;fontSize=11;" value="Consultor de Regras&#xa;&#xa;CATEGORIES (mapa) e&#xa;templates de reasons&#xa;em lib/types.ts + cross-sell.ts" vertex="1">
+          <mxGeometry x="120" y="650" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p-emissor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FBCFE8;strokeColor=#BE185D;fontSize=11;fontStyle=1;" value="Emissor do Plano&#xa;&#xa;AdaptiveResponse final&#xa;CrossSellItem[] +&#xa;CategoryRecommendation[]" vertex="1">
+          <mxGeometry x="120" y="430" width="200" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p-ext-exec" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;strokeWidth=2;fontSize=12;fontStyle=1;" value="Executor" vertex="1">
+          <mxGeometry x="1370" y="440" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p-ext-ana" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Analisador&#xa;(emite diagnóstico)" vertex="1">
+          <mxGeometry x="1370" y="550" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p-ext-kb" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;boundedLbl=1;backgroundOutline=1;size=12;" value="Base de&#xa;Conhecimento&#xa;(CATEGORIES,&#xa;buildReason templates)" vertex="1">
+          <mxGeometry x="1390" y="660" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e1" edge="1" parent="1" source="p-ext-ana" target="p-recep" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.7;endArrow=classic;strokeColor=#BE185D;fontSize=10;fontColor=#BE185D;" value="diagnóstico">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e2" edge="1" parent="1" source="p-recep" target="p-cons" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;endArrow=classic;strokeColor=#BE185D;fontSize=10;fontColor=#BE185D;" value="categoria-alvo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e3" edge="1" parent="1" source="p-cons" target="p-sel" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=classic;strokeColor=#BE185D;fontSize=10;fontColor=#BE185D;" value="categorias afins">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e4" edge="1" parent="1" source="p-sel" target="p-just" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=classic;strokeColor=#BE185D;fontSize=10;fontColor=#BE185D;" value="top N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e5" edge="1" parent="1" source="p-just" target="p-mont" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.4;endArrow=classic;strokeColor=#BE185D;fontSize=10;fontColor=#BE185D;" value="CrossSellItem[]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e6" edge="1" parent="1" source="p-mont" target="p-emissor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;endArrow=classic;strokeColor=#BE185D;fontSize=10;fontColor=#BE185D;" value="plano completo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e7" edge="1" parent="1" source="p-cons-kb" target="p-mont" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.3;entryX=0;entryY=0.8;endArrow=classic;strokeColor=#BE185D;dashed=1;fontSize=10;fontColor=#BE185D;" value="regras">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e8" edge="1" parent="1" source="p-emissor" target="p-ext-exec" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;endArrow=classic;strokeColor=#BE185D;strokeWidth=2;fontSize=10;fontColor=#BE185D;" value="plano&#xa;(AdaptiveResponse)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e9" edge="1" parent="1" source="p-cons-kb" target="p-ext-kb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;endArrow=classic;startArrow=classic;strokeColor=#B45309;strokeWidth=2;fontSize=10;fontColor=#B45309;dashed=1;" value="lê regras">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-map-frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F9FAFB;strokeColor=#9CA3AF;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" value="Mapeamento subcomponente → código do Adaptive Delivery" vertex="1">
+          <mxGeometry x="80" y="890" width="1490" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="p-map-text" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#374151;spacingLeft=20;spacingTop=10;" value="• Receptor de Diagnóstico — lib/cross-sell.ts → generateCrossSell(categoryKey, itemName): recebe a categoria do último item interagido&#xa;• Consultor de Afinidades — leitura de CATEGORIES[categoryKey].crossSell (grafo estático categoria → categorias afins, definido em lib/types.ts)&#xa;• Seletor de Sugestões — meta.crossSell.slice(0, MAX_SUGGESTIONS) — corta em até 4 sugestões para não poluir a UI&#xa;• Gerador de Justificativa — buildReason(target, itemContext) — produz mensagens contextualizadas (&quot;Que tal uma bebida para acompanhar a sua Coxinha?&quot;)&#xa;• Montador do Plano — lib/event-monitor.ts: combina rankCategories() (do Analisador) + generateCrossSell() em um único AdaptiveResponse&#xa;• Consultor de Regras — leitura de CATEGORIES (mapa) e dos templates de reason em cross-sell.ts (faz parte do Knowledge)&#xa;• Emissor do Plano — return AdaptiveResponse — consumido pela API route (Executor)&#xa;&#xa;Constantes (Knowledge): MAX_SUGGESTIONS=4 · grafo CATEGORIES com 10 categorias (SALGADOS, DOCES, BEBIDAS, LANCHES, PIZZAS, SOBREMESAS, CAFES, ACOMPANHAMENTOS, MOLHOS, PROMOCOES)" vertex="1">
+          <mxGeometry x="100" y="920" width="1450" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="④ Executor — Detalhamento" id="executor-detail">
+    <mxGraphModel dx="1768" dy="981" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="x-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F2937;" value="Adaptive Delivery — Detalhamento do ④ Executor" vertex="1">
+          <mxGeometry x="40" y="30" width="1574" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="x-mini-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#374151;strokeWidth=1;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;" value="Sistema Gerenciador (MAPE-K)" vertex="1">
+          <mxGeometry x="80" y="100" width="480" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="x-mini-ana" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Analisador" vertex="1">
+          <mxGeometry x="110" y="150" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="x-mini-mon" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Monitor" vertex="1">
+          <mxGeometry x="110" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="x-mini-kb" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=10;boundedLbl=1;backgroundOutline=1;size=10;" value="Base de&#xa;Conhecimento" vertex="1">
+          <mxGeometry x="270" y="180" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x-mini-plan" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Planejador" vertex="1">
+          <mxGeometry x="410" y="150" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="x-mini-exec" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FDE68A;strokeColor=#B45309;fontSize=11;fontStyle=1;strokeWidth=2;" value="Executor" vertex="1">
+          <mxGeometry x="410" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="x-mini-arrow" parent="1" style="endArrow=classic;html=1;strokeColor=#DC2626;strokeWidth=2;" edge="1" source="x-mini-exec" target="x-mini-mon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-b1" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Recebe o plano (AdaptiveResponse) do Planejador via HTTP" vertex="1">
+          <mxGeometry x="620" y="130" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x-b2" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Despacha o plano para o estado React (setCategories / setCrossSell / setEventCount)" vertex="1">
+          <mxGeometry x="620" y="170" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x-b3" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Aciona os atuadores no Sistema Gerenciado (re-render da vitrine)" vertex="1">
+          <mxGeometry x="620" y="210" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x-b4" parent="1" style="text;html=1;align=left;fontSize=13;fontColor=#1F2937;spacingLeft=10;" value="✓ Emite telemetria (console.log) e fecha o laço autonômico (RA01 — adaptação instantânea)" vertex="1">
+          <mxGeometry x="620" y="250" width="950" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#047857;strokeWidth=2;fontSize=14;fontStyle=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" value="Executor" vertex="1">
+          <mxGeometry x="80" y="350" width="1240" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="x-recep" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#A7F3D0;strokeColor=#047857;fontSize=11;fontStyle=1;" value="Receptor do Plano&#xa;&#xa;NextResponse.json(adaptiveResponse)&#xa;fetch().then(res =&gt; res.json())" vertex="1">
+          <mxGeometry x="1060" y="440" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="x-proc-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#047857;strokeWidth=1;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;" value="Despachante (Effector Bus)" vertex="1">
+          <mxGeometry x="640" y="410" width="360" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="x-recon" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#A7F3D0;strokeColor=#047857;fontSize=11;" value="Reconciliador de Estado&#xa;&#xa;useAdaptiveSession.fireEvent()&#xa;atualiza estado React" vertex="1">
+          <mxGeometry x="670" y="450" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="x-disp" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#A7F3D0;strokeColor=#047857;fontSize=11;" value="Despachante de Setters&#xa;&#xa;setCategories(adaptedCategories)&#xa;setCrossSell(crossSellSuggestions)&#xa;setEventCount / setLastAdaptation" vertex="1">
+          <mxGeometry x="670" y="540" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="x-log" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#A7F3D0;strokeColor=#047857;fontSize=11;" value="Emissor de Telemetria&#xa;&#xa;console.log [EventMonitor]&#xa;sessão · evento # · latência ms" vertex="1">
+          <mxGeometry x="670" y="640" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="x-act-frame" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#10B981;strokeWidth=1;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;" value="Atuadores (no Sistema Gerenciado)" vertex="1">
+          <mxGeometry x="100" y="430" width="500" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="x-act1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#10B981;fontSize=11;" value="CategoryPills.tsx&#xa;&#xa;Reordena a vitrine de categorias&#xa;destaca highlighted = true" vertex="1">
+          <mxGeometry x="120" y="470" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="x-act2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#10B981;fontSize=11;" value="CrossSellBanner.tsx&#xa;&#xa;Renderiza CrossSellItem[]&#xa;com reason contextualizada" vertex="1">
+          <mxGeometry x="360" y="470" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="x-act3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#10B981;fontSize=11;" value="ProductCard.tsx&#xa;&#xa;Aplica destaques&#xa;reemite eventos (sensor)" vertex="1">
+          <mxGeometry x="120" y="570" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="x-act4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#10B981;fontSize=11;" value="AdaptiveDebugPanel.tsx&#xa;&#xa;Mostra scores, ranking,&#xa;eventCount e latência" vertex="1">
+          <mxGeometry x="360" y="570" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="x-act-text" parent="1" style="text;html=1;align=center;fontSize=10;fontStyle=2;fontColor=#065F46;" value="Reconciliação React → DOM (RA01)" vertex="1">
+          <mxGeometry x="120" y="670" width="460" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x-ext-sg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;strokeWidth=2;fontSize=12;fontStyle=1;" value="Sistema Gerenciado&#xa;(vitrine React)" vertex="1">
+          <mxGeometry x="1370" y="440" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="x-ext-plan" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#374151;fontSize=11;" value="Planejador&#xa;(emite plano)" vertex="1">
+          <mxGeometry x="1370" y="550" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x-ext-kb" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#B45309;fontSize=10;boundedLbl=1;backgroundOutline=1;size=12;" value="Base de&#xa;Conhecimento&#xa;(logs +&#xa;próximo ciclo)" vertex="1">
+          <mxGeometry x="1390" y="660" width="140" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="x-e1" edge="1" parent="1" source="x-ext-plan" target="x-recep" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.7;endArrow=classic;strokeColor=#047857;fontSize=10;fontColor=#047857;" value="plano (HTTP)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-e2" edge="1" parent="1" source="x-recep" target="x-recon" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;endArrow=classic;strokeColor=#047857;fontSize=10;fontColor=#047857;" value="JSON parsed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-e3" edge="1" parent="1" source="x-recon" target="x-disp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=classic;strokeColor=#047857;fontSize=10;fontColor=#047857;" value="dispatch">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-e4" edge="1" parent="1" source="x-disp" target="x-log" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;endArrow=classic;strokeColor=#047857;dashed=1;fontSize=10;fontColor=#047857;" value="telemetria">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-e5" edge="1" parent="1" source="x-disp" target="x-act1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.3;entryX=1;entryY=0.5;endArrow=classic;strokeColor=#10B981;fontSize=10;fontColor=#10B981;" value="adaptedCategories">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-e6" edge="1" parent="1" source="x-disp" target="x-act2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.5;entryX=1;entryY=0.5;endArrow=classic;strokeColor=#10B981;fontSize=10;fontColor=#10B981;" value="crossSellSuggestions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-e7" edge="1" parent="1" source="x-disp" target="x-act3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.7;entryX=1;entryY=0.5;endArrow=classic;strokeColor=#10B981;fontSize=10;fontColor=#10B981;" value="props">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-e8" edge="1" parent="1" source="x-disp" target="x-act4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0.9;entryX=1;entryY=0.5;endArrow=classic;strokeColor=#10B981;fontSize=10;fontColor=#10B981;" value="scores, ranking">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-e9" edge="1" parent="1" source="x-act-frame" target="x-ext-sg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.2;entryX=0;entryY=0.5;endArrow=classic;strokeColor=#10B981;strokeWidth=2;fontSize=10;fontColor=#10B981;" value="re-render do DOM&#xa;(RA01)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-e10" edge="1" parent="1" source="x-log" target="x-ext-kb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;endArrow=classic;strokeColor=#B45309;strokeWidth=1;dashed=1;fontSize=10;fontColor=#B45309;" value="logs / latência">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x-map-frame" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F9FAFB;strokeColor=#9CA3AF;fontSize=12;fontStyle=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;" value="Mapeamento subcomponente → código do Adaptive Delivery" vertex="1">
+          <mxGeometry x="80" y="890" width="1490" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="x-map-text" parent="1" style="text;html=1;align=left;fontSize=11;fontColor=#374151;spacingLeft=20;spacingTop=10;" value="• Receptor do Plano — app/api/session/event/route.ts → NextResponse.json(response) + fetch().then(res =&gt; res.json()) no client&#xa;• Reconciliador de Estado — hooks/useAdaptiveSession.ts → fireEvent(): consome AdaptiveResponse e atualiza o estado React local&#xa;• Despachante de Setters — setCategories(data.adaptedCategories) · setCrossSell(data.crossSellSuggestions) · setEventCount(data.totalEventsProcessed) · setLastAdaptation(data.adaptationTimestampMs)&#xa;• Emissor de Telemetria — event-monitor.ts: console.log(&apos;[EventMonitor] Sessão X | Evento #N | type em CAT | Yms&apos;)&#xa;• Atuadores no Sistema Gerenciado:&#xa;     – CategoryPills.tsx reordena os pills e aplica destaque (highlighted)&#xa;     – CrossSellBanner.tsx renderiza o CrossSellItem[] com a reason contextualizada&#xa;     – ProductCard.tsx reaplica destaques e continua emitindo eventos (Sensor) — fechando o ciclo&#xa;     – AdaptiveDebugPanel.tsx exibe scores/ranking/latência (observabilidade acadêmica)&#xa;&#xa;Garante RA01 (adaptação instantânea): a resposta JSON é síncrona e React reconcilia o DOM em um único frame." vertex="1">
+          <mxGeometry x="100" y="920" width="1450" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
 </mxfile>
