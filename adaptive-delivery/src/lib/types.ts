@@ -149,6 +149,7 @@ export interface AdaptiveResponse {
   sessionId: string;
   adaptedCategories: CategoryRecommendation[];
   crossSellSuggestions: CrossSellItem[];
+  ticketInfo?: TicketInfo;
   totalEventsProcessed: number;
   adaptationTimestampMs: number;
 }
@@ -181,4 +182,47 @@ export interface Product {
   category: CategoryKey;
   image: string;
   tags: string[];
+}
+
+// ============================================================
+// Pedidos (histórico mockado)
+// ============================================================
+
+/** Item dentro de um pedido */
+export interface OrderItem {
+  productId: string;
+  productName: string;
+  category: CategoryKey;
+  quantity: number;
+  unitPrice: number;
+}
+
+/** Pedido finalizado */
+export interface Order {
+  id: string;
+  date: string; // ISO-8601
+  items: OrderItem[];
+  total: number;
+}
+
+// ============================================================
+// Ticket Médio — Recomendações inteligentes
+// ============================================================
+
+/** Produto recomendado para atingir o ticket médio */
+export interface TicketRecommendation {
+  productId: string;
+  productName: string;
+  price: number;
+  category: CategoryKey;
+  emoji: string;
+  reason: string;
+}
+
+/** Dados de ticket médio retornados pela API */
+export interface TicketInfo {
+  averageTicket: number;
+  currentCartTotal: number;
+  gap: number; // quanto falta para atingir o ticket médio
+  recommendations: TicketRecommendation[];
 }

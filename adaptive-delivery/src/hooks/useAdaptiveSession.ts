@@ -15,9 +15,20 @@ import { DEFAULT_CATEGORY_ORDER, CATEGORIES } from "@/lib/types";
  *
  * Responsabilidades:
  * - Gerar/manter o sessionId
- * - Enviar eventos de clickstream para a API
+ * - Enviar eventos de clickstream para a API (registro contínuo)
  * - Manter o estado da vitrine adaptada no client
  * - Fornecer funções para os componentes emitirem eventos
+ *
+ * ── Política de adaptação ───────────────────────────────────
+ * O REGISTRO de eventos acontece a cada interação (a sessão e os
+ * scores continuam evoluindo no backend), mas a APLICAÇÃO VISUAL
+ * da adaptação (reordenar categorias, cross-sell, highlights) só
+ * é commitada quando o usuário NAVEGA entre telas. Isso evita que
+ * a vitrine se reorganize embaixo do dedo do usuário a cada clique.
+ *
+ * O fluxo é: sendEvent() guarda a última resposta adaptada em um
+ * ref "pendente"; commitAdaptation() (chamado nas transições de
+ * tela) é quem efetivamente aplica essa adaptação ao estado visível.
  */
 export function useAdaptiveSession() {
   const [sessionId, setSessionId] = useState("");
@@ -28,6 +39,11 @@ export function useAdaptiveSession() {
   const [eventCount, setEventCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [lastAdaptation, setLastAdaptation] = useState<number | null>(null);
+  // Sinaliza que há uma nova vitrine adaptada aguardando a próxima navegação
+  const [hasPendingAdaptation, setHasPendingAdaptation] = useState(false);
+
+  // Última adaptação calculada pelo backend, ainda NÃO aplicada à UI
+  const pendingRef = useRef<AdaptiveResponse | null>(null);
 
   // Gerar sessionId somente no client para evitar hydration mismatch
   useEffect(() => {
@@ -38,8 +54,12 @@ export function useAdaptiveSession() {
   const viewTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   /**
-   * Envia um evento de clickstream e atualiza a vitrine.
+   * Registra um evento de clickstream no backend.
    * Chamado pelos componentes sempre que o usuário interage.
+   *
+   * NÃO aplica a adaptação à vitrine imediatamente — apenas guarda
+   * o resultado como "pendente" para ser commitado na próxima
+   * navegação entre telas.
    */
   const sendEvent = useCallback(
     async (
@@ -91,16 +111,36 @@ export function useAdaptiveSession() {
 
       const data: AdaptiveResponse = await res.json();
 
-      setCategories(data.adaptedCategories);
-      setCrossSell(data.crossSellSuggestions);
+      // O contador de eventos é telemetria (não é "adaptação"), pode
+      // refletir o registro em tempo real para dar feedback ao usuário.
       setEventCount(data.totalEventsProcessed);
-      setLastAdaptation(data.adaptationTimestampMs);
+
+      // A vitrine adaptada fica PENDENTE: só é aplicada ao navegar.
+      pendingRef.current = data;
+      setHasPendingAdaptation(true);
     } catch (err) {
       console.error("Erro ao enviar evento:", err);
     } finally {
       setIsLoading(false);
     }
   };
+
+  /**
+   * Aplica a adaptação pendente à vitrine visível.
+   * Deve ser chamado nas transições de tela (catálogo ↔ carrinho,
+   * seleção de categoria, etc.). É um no-op se não houver pendência.
+   */
+  const commitAdaptation = useCallback(() => {
+    const data = pendingRef.current;
+    if (!data) return;
+
+    setCategories(data.adaptedCategories);
+    setCrossSell(data.crossSellSuggestions);
+    setLastAdaptation(data.adaptationTimestampMs);
+
+    pendingRef.current = null;
+    setHasPendingAdaptation(false);
+  }, []);
 
   return {
     sessionId,
@@ -109,7 +149,9 @@ export function useAdaptiveSession() {
     eventCount,
     isLoading,
     lastAdaptation,
+    hasPendingAdaptation,
     sendEvent,
+    commitAdaptation,
   };
 }
 

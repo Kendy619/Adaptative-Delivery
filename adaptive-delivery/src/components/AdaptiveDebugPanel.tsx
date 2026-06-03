@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { CategoryRecommendation, CrossSellItem } from "@/lib/types";
+import type { CategoryRecommendation, CrossSellItem, TicketInfo } from "@/lib/types";
 
 interface DebugPanelProps {
   sessionId: string;
@@ -9,6 +9,7 @@ interface DebugPanelProps {
   categories: CategoryRecommendation[];
   crossSell: CrossSellItem[];
   lastAdaptation: number | null;
+  ticketInfo?: TicketInfo;
 }
 
 export default function AdaptiveDebugPanel({
@@ -17,6 +18,7 @@ export default function AdaptiveDebugPanel({
   categories,
   crossSell,
   lastAdaptation,
+  ticketInfo,
 }: DebugPanelProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -149,6 +151,53 @@ export default function AdaptiveDebugPanel({
               </>
             )}
 
+            {/* Ticket Médio */}
+            {ticketInfo && (
+              <>
+                <div className="h-px bg-surface-800 mb-4" />
+                <div className="mb-4">
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-surface-500 mb-2">
+                    Ticket Médio (RN06)
+                  </h4>
+                  <div className="space-y-1.5">
+                    <div className="flex justify-between text-xs">
+                      <span className="text-surface-500">Ticket médio</span>
+                      <span className="font-mono text-amber-400 font-bold">
+                        R${ticketInfo.averageTicket.toFixed(2)}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-surface-500">Carrinho atual</span>
+                      <span className="font-mono text-surface-300">
+                        R${ticketInfo.currentCartTotal.toFixed(2)}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-surface-500">Gap</span>
+                      <span
+                        className={`font-mono font-bold ${
+                          ticketInfo.gap <= 0
+                            ? "text-emerald-400"
+                            : "text-amber-400"
+                        }`}
+                      >
+                        {ticketInfo.gap <= 0
+                          ? "Atingido!"
+                          : `R$${ticketInfo.gap.toFixed(2)}`}
+                      </span>
+                    </div>
+                    {ticketInfo.recommendations.length > 0 && (
+                      <div className="mt-2">
+                        <span className="text-[10px] text-surface-600">
+                          {ticketInfo.recommendations.length} produto(s) sugerido(s)
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </>
+            )}
+
             {/* Regras mapeadas */}
             <div className="h-px bg-surface-800 my-4" />
             <div className="space-y-1">
@@ -161,7 +210,8 @@ export default function AdaptiveDebugPanel({
                 { code: "RN03", label: "Categorias reordenadas", active: scoredCategories.length > 0 },
                 { code: "RN04", label: "Cross-sell ativo", active: crossSell.length > 0 },
                 { code: "RN05", label: "Acesso livre mantido", active: true },
-                { code: "RA01", label: "Adaptação instantânea", active: lastAdaptation !== null },
+                { code: "RN06", label: "Ticket médio como objetivo", active: (ticketInfo?.currentCartTotal ?? 0) > 0 },
+                { code: "RA01", label: "Adaptação ao navegar", active: lastAdaptation !== null },
               ].map((rule) => (
                 <div
                   key={rule.code}

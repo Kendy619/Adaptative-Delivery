@@ -4,6 +4,7 @@ interface HeaderProps {
   sessionId: string;
   eventCount: number;
   isLoading: boolean;
+  hasPendingAdaptation?: boolean;
   cartItemCount: number;
   onCartClick: () => void;
 }
@@ -12,6 +13,7 @@ export default function Header({
   sessionId,
   eventCount,
   isLoading,
+  hasPendingAdaptation = false,
   cartItemCount,
   onCartClick,
 }: HeaderProps) {
@@ -49,6 +51,15 @@ export default function Header({
             <p className="text-xs font-semibold text-surface-800 mt-0.5">
               {eventCount} evento{eventCount !== 1 ? "s" : ""}
             </p>
+            {hasPendingAdaptation && (
+              <p
+                className="text-[9px] font-medium text-brand-500 mt-0.5 flex items-center gap-1 justify-end"
+                title="Sua vitrine será atualizada ao navegar entre telas"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse" />
+                vitrine pronta p/ atualizar
+              </p>
+            )}
           </div>
 
           {/* Cart button */}
