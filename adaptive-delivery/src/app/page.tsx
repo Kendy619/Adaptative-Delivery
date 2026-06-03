@@ -109,6 +109,14 @@ export default function HomePage() {
     }
   };
 
+  // Pill "Todos": limpa o filtro e volta à vitrine adaptativa completa.
+  // É uma navegação (aplica a adaptação pendente), mas não gera peso —
+  // "Todos" não é uma categoria de interesse.
+  const handleClearCategory = () => {
+    commitAdaptation();
+    setActiveCategory(null);
+  };
+
   const handleCrossSellSelect = (category: CategoryKey) => {
     commitAdaptation();
     setActiveCategory(category);
@@ -177,6 +185,7 @@ export default function HomePage() {
             categories={categories}
             activeCategory={activeCategory}
             onSelect={handleCategorySelect}
+            onClear={handleClearCategory}
           />
 
           {/* Cross-sell banner (RN04) */}
